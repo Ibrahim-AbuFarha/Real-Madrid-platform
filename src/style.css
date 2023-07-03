@@ -13,6 +13,14 @@ body {
   background-position: center;
   font-family: Arial, sans-serif;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
 
 .container {
   max-width: 800px;
@@ -176,11 +184,11 @@ body {
   margin-bottom: 10px;
   position: relative;
 }
-user-comment-info{
+user-comment-info {
   display: flex;
   align-items: center;
 }
-.comment-user-photo{
+.comment-user-photo {
   width: 60px;
   height: 60px;
 }
