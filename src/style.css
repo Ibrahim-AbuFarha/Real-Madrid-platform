@@ -5,6 +5,14 @@
   list-style-type: none;
   overflow-x: hidden;
 }
+:root {
+  --white-color: #fff;
+  --black-color: #111;
+  --time-color: #777777;
+  --btn-bg-color: #0066b3;
+  --btn-bg-hover: #004080;
+  --border-radius: 5px;
+}
 /* App.css */
 
 body {
@@ -15,7 +23,7 @@ body {
 }
 a {
   text-decoration: none;
-  color: white;
+  color: var(--white-color);
 }
 button {
   background-color: transparent;
@@ -23,27 +31,34 @@ button {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
 /* Create post Component start */
 .create-post {
-  background-color: #000;
+  background-color: var(--black-color);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
 }
-
+.create-post form {
+  display: grid;
+  
+}
 .create-post .input,
 .create-post textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 10px 9px;
+  margin: 5px 4px;
   background-color: #333;
-  color: #fff;
+  color: var(--white-color);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
+}
+
+.create-post textarea {
+  height: 180px;
   resize: none;
 }
 
@@ -51,16 +66,16 @@ button {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #0066b3;
-  color: #fff;
+  background-color: var(--btn-bg-color);
+  color: var(--white-color);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .create-post .post-button:hover {
-  background-color: #004080;
+  background-color: var(--btn-bg-hover);
 }
 /* Create post Component end */
 /**/
@@ -70,8 +85,8 @@ button {
 }
 
 .post {
-  background-color: #ffffff;
-  border-radius: 5px;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -106,41 +121,41 @@ button {
 .post-author {
   font-weight: bold;
   font-size: 25px;
-  color: #111;
+  color: var(--black-color);
   margin-bottom: 5px;
 }
 
 .post-title {
   font-size: 24px;
   font-weight: bold;
-  color: #111;
+  color: var(--btn-bg-color);
   margin-bottom: 10px;
 }
 
 .post-content {
-  color: #111;
+  color: var(--black-color);
   margin-bottom: 10px;
 }
 
 .post .comments-button {
   display: block;
-  background-color: #0066b3;
-  color: #fff;
+  background-color: var(--btn-bg-color);
+  color: var(--white-color);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .post .comments-button:hover {
-  background-color: #004080;
+  background-color: var(--btn-bg-hover);
 }
 /* post Component end */
 
 /* Create comment Component start */
 .create-comment-form {
-  background-color: #ffffff;
+  background-color: var(--white-color);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -156,14 +171,16 @@ button {
 }
 
 .create-comment-form button {
-  background-color: #0b1449;
-  color: #ffffff;
+  background-color: var(--btn-bg-color);
+  color: var(--white-color);
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
-
+.create-comment-form button:hover {
+  background-color: var(--btn-bg-hover);
+}
 .create-comment-form button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -171,22 +188,23 @@ button {
 
 /*  comments Component start */
 .comments-container {
-  background-color: #222;
+  background-color: var(--btn-bg-color);
   border-radius: 8px;
   padding: 20px;
   margin-top: 20px;
 }
 
 .comment {
-  background-color: #ffffff;
-  border-radius: 5px;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
   padding: 10px;
   margin-bottom: 10px;
   position: relative;
 }
-user-comment-info {
+.user-comment-info {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 .comment-user-photo {
   width: 60px;
@@ -196,18 +214,19 @@ user-comment-info {
 .comment-author {
   font-size: 14px;
   font-weight: bold;
-  color: #0b1449;
-  margin-bottom: 5px;
+  color: var(--btn-bg-color);
+  margin-bottom: 10px;
 }
 
 .comment-content {
   font-size: 16px;
-  color: #000000;
+  color: var(--black-color);
   margin-bottom: 5px;
 }
 
-.comment-time {
-  font-size: 12px;
+.comment-time,
+.post-time {
+  font-size: 14px;
   color: #777777;
   margin-bottom: 5px;
 }
@@ -224,27 +243,13 @@ user-comment-info {
   padding: 0;
   margin-left: 5px;
   font-size: 16px;
-  color: #0b1449;
+  color: var(--btn-bg-color);
   cursor: pointer;
 }
 
 .comment-buttons button:hover {
   color: #ff0000;
 }
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  .post,
-  .comments-container {
-    padding: 10px;
-  }
-}
-
-/* Styles for Create Comment Component */
 
 /* Edit Comment Component start */
 .edit-comment-form {
@@ -255,17 +260,20 @@ user-comment-info {
   width: 100%;
   padding: 10px;
   border: 1px solid #cccccc;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 }
 
 .edit-comment-form button {
-  background-color: #0b1449;
-  color: #ffffff;
+  background-color: var(--btn-bg-color);
+  color: var(--white-color);
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   margin-top: 15px;
+}
+.edit-comment-form button:hover {
+  background-color: var(--btn-bg-hover);
 }
 
 .edit-comment-form button:disabled {
@@ -285,8 +293,8 @@ user-comment-info {
   border: none;
   border-radius: 25px;
   font-weight: bold;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--white-color);
+  color: var(--black-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -297,7 +305,18 @@ user-comment-info {
 
 .real-button:hover {
   background-color: #000;
-  color: #fff;
+  color: var(--white-color);
   transform: translateY(-3px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .post,
+  .comments-container {
+    padding: 10px;
+  }
 }

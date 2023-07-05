@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import { faker } from "@faker-js/faker";
+
 import { GoXCircleFill, GoPencil } from "react-icons/go";
 
 function Comment({ comment, onDeleteComment, onEditComment }) {
-  const randomAvatar = faker.image.avatar();
   const [editComment, setEditComment] = useState("");
   const [isEdit, setIsEdit] = useState(false);
   const handleDeleteComment = () => {
@@ -28,7 +27,7 @@ function Comment({ comment, onDeleteComment, onEditComment }) {
   return (
     <div className="comment">
       <div className="user-comment-info">
-        <img className="comment-user-photo" src={randomAvatar} />
+        <img className="comment-user-photo" src={comment.commentImg} />
         <div>
           <div className="comment-author">{comment.commentAuthor}</div>
           <div className="comment-content">{comment.commentContent}</div>

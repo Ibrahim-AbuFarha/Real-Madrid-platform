@@ -23,7 +23,7 @@ function Header() {
               <Link href="#">News</Link>
             </li>
             <li>
-              <Link href="#">Mtches</Link>
+              <Link href="#">Matches</Link>
             </li>
             <li>
               <Link href="#">Players</Link>

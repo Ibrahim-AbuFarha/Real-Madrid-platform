@@ -4,7 +4,7 @@ import "./footer.css";
 function Footer() {
   return (
     <footer>
-      <div className="container">
+      <div className="footer-container">
         <div className="footer-top">
           <div className="footer-col">
             <h4>Real Madrid Club</h4>

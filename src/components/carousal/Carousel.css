@@ -81,3 +81,8 @@
 #radio4:checked ~ .navigation-auto-btn4 {
   background: #ffffff;
 }
+@media (width<760px){
+  .navigation-manual{
+    display: none;
+  }
+}

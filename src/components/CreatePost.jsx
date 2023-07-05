@@ -1,24 +1,34 @@
 import axios from "axios";
 import { useState } from "react";
+import { faker } from "@faker-js/faker";
+import moment from "moment";
 function CreatePost({ onCreate }) {
+  const randomAvatar = faker.image.avatar();
+
+  //post details object
   const [postDetails, setPostDetails] = useState({
     title: "",
     author: "",
     content: "",
     img: "",
-    time: "",
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //request to push this object into the array of posts in json server
     axios
-      .post("http://localhost:3005/posts", postDetails)
+      .post("http://localhost:3005/posts", {
+        ...postDetails,
+        postImg: randomAvatar,
+        postTime: moment().calendar(),
+      })
       .then(({ data: newPost }) => {
+        //reset inputs after submit the post form
         setPostDetails({
           title: "",
           author: "",
           content: "",
-          time: "",
         });
+        //props to parent to handle the creation of post(object)
         onCreate(newPost);
       })
       .catch((err) => console.log(err));

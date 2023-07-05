@@ -5,9 +5,10 @@ footer {
   font-size: 14px;
 }
 
-.container {
-  max-width: 1200px;
+.footer-container {
+  max-width: 1000px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .footer-top {
@@ -20,13 +21,13 @@ footer {
   flex-basis: 33.33%;
 }
 
-h4 {
+footer h4 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-p {
+footer p {
   margin: 10px 0;
 }
 
@@ -56,4 +57,38 @@ p {
 .footer-text {
   margin-top: 0;
   opacity: 0.8;
+}
+@media (width<600px) {
+  footer {
+    font-size: 12px;
+  }
+  .footer-container {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+  .footer-top {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center
+    ;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .footer-col {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  footer h4{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+  }
 }

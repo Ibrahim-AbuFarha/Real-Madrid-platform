@@ -4,16 +4,19 @@ import Comment from "./Comment";
 import CreateComment from "./CreateComment";
 
 function Comments({ postId }) {
-  const [comments, setComment] = useState([]);
+  const [comments, setComments] = useState([]);
+  //create comment
   const handelCreateComment = (newComment) => {
-    setComment([...comments, { ...newComment }]);
+    setComments([...comments, { ...newComment }]);
   };
+  //delete comment
   const handelDeleteComment = (id) => {
     const UpdatedComment = comments.filter((comment) => {
       return comment.id !== id;
     });
-    setComment(UpdatedComment);
+    setComments(UpdatedComment);
   };
+  //edit comment
   const handelEditComment = (EditComment, id) => {
     const UpdatedComment = comments.map((comment) => {
       if (comment.id === id) {
@@ -21,14 +24,14 @@ function Comments({ postId }) {
       }
       return comment;
     });
-    setComment(UpdatedComment);
+    setComments(UpdatedComment);
   };
   //
   useEffect(() => {
     axios
       .get(`http://localhost:3005/comments?postId=${postId}`)
       .then(({ data }) => {
-        setComment(data);
+        setComments(data);
       });
   }, []);
   //
